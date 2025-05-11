@@ -12,6 +12,8 @@ export interface TokenData {
   telegram?: string;
   website?: string;
   pumpLink: string;
+  position?: { x: number, y: number };
+  entryDelay?: number;
 }
 
 export type TimeframeFilter = 
