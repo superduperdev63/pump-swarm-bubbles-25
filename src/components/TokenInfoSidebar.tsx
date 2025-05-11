@@ -2,7 +2,8 @@
 import React from 'react';
 import { X, ExternalLink, Twitter, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { TokenData, formatMarketCap, formatPrice, formatVolume, generateSparklineData } from '@/lib/mock-data';
+import { TokenData } from '@/lib/types';
+import { formatMarketCap, formatPrice, formatVolume, generateSparklineData } from '@/lib/mock-data';
 
 interface TokenChartProps {
   data: number[];

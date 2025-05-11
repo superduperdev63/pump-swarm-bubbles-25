@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect, memo } from 'react';
 import { cn } from '@/lib/utils';
-import { TokenData, calculateBubbleSize, formatMarketCap, getTokenGradient } from '@/lib/mock-data';
+import { TokenData } from '@/lib/types';
+import { calculateBubbleSize, formatMarketCap, getTokenGradient } from '@/lib/mock-data';
 
 interface TokenBubbleProps {
   token: TokenData;
