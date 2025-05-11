@@ -14,6 +14,9 @@ export interface TokenData {
   pumpLink: string;
   position?: { x: number, y: number };
   entryDelay?: number;
+  isDragging?: boolean;
+  velocity?: { x: number, y: number };
+  fixed?: boolean;
 }
 
 export type TimeframeFilter = 
