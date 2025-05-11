@@ -43,6 +43,13 @@
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 262 76% 75%;
+    
+    /* Bubble gradient variables */
+    --bubble-purple: linear-gradient(135deg, #9b87f5, #7E69AB);
+    --bubble-blue: linear-gradient(135deg, #33C3F0, #1EAEDB);
+    --bubble-pink: linear-gradient(135deg, #D6BCFA, #8B5CF6);
+    --bubble-green: linear-gradient(135deg, #34D399, #10B981);
+    --bubble-yellow: linear-gradient(135deg, #FBBF24, #F59E0B);
   }
 }
 
@@ -85,6 +92,26 @@
   
   .text-gradient-purple {
     @apply bg-gradient-to-br from-bubble-purple via-bubble-purple/90 to-bubble-purple/60 bg-clip-text text-transparent;
+  }
+
+  /* Bubble animation */
+  @keyframes bubble-grow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .animate-bubble-grow {
+    animation: bubble-grow 0.3s ease-in-out;
+  }
+
+  /* Bubble entry animation */
+  @keyframes bubble-in {
+    from { transform: translateX(-100px) scale(0.5); opacity: 0; }
+    to { transform: translateX(0) scale(1); opacity: 1; }
+  }
+
+  .animate-bubble-in {
+    animation: bubble-in 0.5s ease-out forwards;
   }
 
   .bubble-gradient-purple {

@@ -19,13 +19,13 @@ const BubbleMap: React.FC<BubbleMapProps> = ({
 
   // Initial data generation
   useEffect(() => {
-    const mockTokens = generateMockTokens(200);
+    const mockTokens = generateMockTokens(30); // Generate 30 initial tokens
     setTokens(mockTokens);
     
     // Periodically add a new token
     const interval = setInterval(() => {
       const newToken = generateMockTokens(1)[0];
-      setTokens(prev => [...prev, newToken].slice(-300)); // Keep most recent 300 tokens
+      setTokens(prev => [...prev, newToken].slice(-100)); // Keep most recent 100 tokens
     }, 10000); // Every 10 seconds
     
     return () => clearInterval(interval);
@@ -40,15 +40,21 @@ const BubbleMap: React.FC<BubbleMapProps> = ({
   }, [tokens, timeframeFilter, marketCapFilter]);
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-background">
-      {filteredTokens.map((token, index) => (
-        <TokenBubble 
-          key={token.id} 
-          token={token} 
-          onClick={onSelectToken}
-          index={index}
-        />
-      ))}
+    <div className="relative w-full h-full overflow-hidden rounded-lg border border-white/10 bg-background/50">
+      {filteredTokens.length === 0 ? (
+        <div className="flex items-center justify-center h-full text-muted-foreground">
+          No tokens match the selected filters
+        </div>
+      ) : (
+        filteredTokens.map((token, index) => (
+          <TokenBubble 
+            key={token.id} 
+            token={token} 
+            onClick={onSelectToken}
+            index={index}
+          />
+        ))
+      )}
     </div>
   );
 };
